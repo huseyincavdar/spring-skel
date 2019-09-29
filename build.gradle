@@ -1,0 +1,56 @@
+plugins {
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'project-report'
+apply plugin: 'eclipse'
+
+mainClassName = 'com.cepheid.cloud.skel.SkelApplication'
+group = 'com.cepheid.cloud.skel'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+
+repositories {
+    mavenCentral()
+}
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencyManagement {
+    dependencies {
+        dependency 'io.swagger:swagger-jersey2-jaxrs:1.5.3'
+        imports {
+          mavenBom 'org.springframework.boot:spring-boot-starter-parent:2.1.8.RELEASE'
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.glassfish.jersey.media:jersey-media-multipart'
+    implementation 'io.swagger:swagger-jersey2-jaxrs'
+    implementation 'commons-codec:commons-codec'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-jersey'
+    
+    runtime 'com.h2database:h2'
+    //runtime 'mysql:mysql-connector-java'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+}
