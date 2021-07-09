@@ -24,7 +24,7 @@ Your task is to "complete" the implementation. At a very minimum you need to imp
 * Add Item CRUD methods to the controller.
 * Add methods to the controller to query for specific Items based on it's attributes.
 * Add something of your own choice that uses something from the Spring framework or demonstrates some Object-Oriented Programming Concepts. 
-* Add unit test cases 
+* Add test cases.  
 
 Whatever code you produce, at the end of this exercise it should be of production quality, compile and run even if functionality is not complete.
 
