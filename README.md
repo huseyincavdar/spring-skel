@@ -19,12 +19,12 @@ There is also one unfinished JUnit test in com.cepheid.cloud.skel.ItemController
 
 Your task is to "complete" the implementation. At a very minimum you need to implement the following:
 
-* Add some attributes to the Item class, e.g. a name, a state that can have one of these three values (undefined, valid, invalid) etc.
+* Add some attributes to the Item class. Item must have a state that can have one of these three values (undefined, valid, invalid).
 * Create a new entity class Description, and setup a one to many relation between Item and Description. I.e. an Item has many Descriptions.
 * Add Item CRUD methods to the controller.
 * Add methods to the controller to query for specific Items based on it's attributes.
 * Add something of your own choice that uses something from the Spring framework or demonstrates some Object-Oriented Programming Concepts. 
-* Add test cases.  
+* Add Unit Test cases with good coverage.  
 
 Whatever code you produce, at the end of this exercise it should be of production quality, compile and run even if functionality is not complete.
 
