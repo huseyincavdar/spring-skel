@@ -1,6 +1,8 @@
 package com.cepheid.cloud.skel;
 
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -18,6 +20,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.json.JsonObject;
 import net.joshka.junit.json.params.JsonFileSource;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -27,6 +30,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -173,6 +177,24 @@ public class ItemControllerTest {
     mockMvc.perform(request)
         .andDo(print())
         .andExpect(status().isNotFound());
+  }
+
+  @Order(11)
+  @Test
+  public void testUpdateItem_ItemNotFound() throws Exception {
+    ItemDto dto = ItemDto.builder()
+        .name("Updated test item")
+        .state(State.VALID)
+        .descriptions(Collections.emptyList())
+        .build();
+    var request = put(RESOURCE_ENDPOINT, "225")
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(objectMapper.writeValueAsString(dto));
+    mockMvc.perform(request)
+        .andDo(print())
+        .andExpect(status().isNotFound())
+        .andExpect(jsonPath("$.status", is(String.valueOf(NOT_FOUND.value()))))
+        .andExpect(jsonPath("$.reason", is("Cannot find the item by id: 225")));
   }
 
 }
