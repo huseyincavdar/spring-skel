@@ -1,9 +1,15 @@
 # Item Repository Spring Boot Application #
 
+###Developer Notes
+* There has been changes introduced how Swagger configuration is set up. <br>After launching ```SkelApplication.java``` please refer to Swagger Documentation here: http://localhost:9443/swagger-ui/ <br>
+* After launching the application, H2 in memory database could be access here: http://localhost:9443/h2-console (credentials are set up in ```application.properties```)
+* ```JerseyConfig.java``` and ```TestBase.java``` classes are deprecated and marked for removal  since REST configuration and Integration Tests could be handled easily by capabilities of Spring Boot
+* Due to limited delivery time, configuration settings in```application.properties``` and dependencies in ```build.gradle``` haven't been revisited/refactored. 
+* Due to limited delivery time, project has been implemented in <b>IntelliJ IDEA</b>. 
+
 ### Project Overview ###
 
 This project contains an unfinished implementation of a simple repository for Items.
-
 
 ### Application structure ###
 

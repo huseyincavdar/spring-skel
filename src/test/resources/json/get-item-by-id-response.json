@@ -1,0 +1,9 @@
+{
+  "state": "UNDEFINED",
+  "name": "Test item",
+  "descriptions": [
+    {
+      "description": "Test description of test item"
+    }
+  ]
+}

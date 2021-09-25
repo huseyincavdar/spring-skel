@@ -1,0 +1,33 @@
+{
+  "items": [
+    {
+      "state": "VALID",
+      "name": "Lord of the rings",
+      "descriptions": []
+    },
+    {
+      "state": "VALID",
+      "name": "Hobbit",
+      "descriptions": []
+    },
+    {
+      "state": "VALID",
+      "name": "Silmarillion",
+      "descriptions": []
+    },
+    {
+      "state": "VALID",
+      "name": "Unfinished Tales and The History of Middle-earth",
+      "descriptions": []
+    },
+    {
+      "state": "UNDEFINED",
+      "name": "Test item",
+      "descriptions": [
+        {
+          "description": "Test description of test item"
+        }
+      ]
+    }
+  ]
+}
